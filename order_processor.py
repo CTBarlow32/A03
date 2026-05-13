@@ -37,6 +37,10 @@ print(f"Total Revenue: ${total_revenue}")
 #find min/max
 print(f"Highest Revenue Order:", max(order["amount"] for order in orders))
 
-#Filter orders by dollar amount
-for i, order in enumerate(orders):
+#Filter orders by dollar amount & order status
+def sort_key(o):
+    completed = o["status"].lower() in ("yes")
+    return (0 if completed else 1, -o["amount"])
+
+for i, order in enumerate(sorted(orders, key=sort_key)):
     print(f"{i+1}. Revenue: {order['amount']}, Order Processed: {order['status']}.")
