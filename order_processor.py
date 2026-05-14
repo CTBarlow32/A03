@@ -12,7 +12,7 @@ Processes:
 - collet data into a list of dictionaries
 - sum total revenue (accumulator)
 - min/max: find most profitable order (min/max)
--filter: filter from most to list profitable, finished to unfinished (transform)
+-filter: filter from most to list profitable, finished to unfinished (transform).
 
 Outputs:
 - show orders biggest to smallest, finished to unfinished
