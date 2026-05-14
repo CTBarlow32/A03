@@ -10,9 +10,9 @@ Inputs:
 
 Processes:
 - collet data into a list of dictionaries
-- sum total revenue
-- min/max: find most profitable order
--filter: filter from most to list profitable, finished to unfinished
+- sum total revenue (accumulator)
+- min/max: find most profitable order (min/max)
+-filter: filter from most to list profitable, finished to unfinished (transform)
 
 Outputs:
 - show orders biggest to smallest, finished to unfinished
@@ -27,7 +27,7 @@ orders = []
 
 for i in range(num_orders):
     dollar_amount = int(input(f"Enter dollar amount for order number {i + 1}: $ "))
-    order_status = input(f"Is order completed? ")
+    order_status = input(f"Is order completed? ").lower()
     orders.append({"amount": dollar_amount, "status": order_status})
 
 #sum total revenue
