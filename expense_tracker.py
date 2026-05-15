@@ -8,6 +8,7 @@ Inputs:
 
 Processes:
 - accumualte total expense (accumulater)
+- validate integer is entered
 - find biggest expense in all categories (min/max)
 - make list of dictionaries of expenses and category.
 

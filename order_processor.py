@@ -11,6 +11,7 @@ Inputs:
 Processes:
 - collet data into a list of dictionaries
 - sum total revenue (accumulator)
+- validate integer is entered
 - min/max: find most profitable order (min/max)
 -filter: filter from most to list profitable, finished to unfinished (transform).
 
@@ -26,9 +27,15 @@ num_orders = int(input("Number of Orders Total? "))
 orders = []
 
 for i in range(num_orders):
-    dollar_amount = int(input(f"Enter dollar amount for order number {i + 1}: $ "))
+    dollar_amount = input(f"Enter dollar amount for order number {i + 1}: $ ")
     order_status = input(f"Is order completed? ").lower()
-    orders.append({"amount": dollar_amount, "status": order_status})
+    dollar_amount_wo_period = dollar_amount.replace(".", "")
+    if dollar_amount_wo_period.isdigit():
+        dollar_amount = float(dollar_amount)
+        orders.append({"amount": dollar_amount, "status": order_status})
+    else:
+        print("You did not enter a digit.")
+
 
 #sum total revenue
 total_revenue = sum(order["amount"] for order in orders)
