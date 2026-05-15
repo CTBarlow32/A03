@@ -23,14 +23,19 @@ expenses = []
 #make expenses/category into a list of dictionaries
 for i in range(int(num_of_expenses)): 
     spending_category = input("What category are you spending in? ").lower()
-    dollar_amount = int(input("How much was the expense? $ "))
-    expenses.append({"amount": dollar_amount, "category": spending_category })
+    dollar_amount = input("How much was the expense? $ ")
+    dollar_amount_wo_period = dollar_amount.replace(".", "")
+    if dollar_amount_wo_period.isdigit():
+        dollar_amount = float(dollar_amount)
+        expenses.append({"amount": dollar_amount, "category": spending_category })
+    else:
+        print("You did not enter a digit.")
 
-#sum total revenue
-total_revenue = 0
+#sum total expense
+total_expense = 0
 for expense in expenses:
-    total_revenue += expense["amount"]
-print(f"Total Expenses: ${total_revenue}")
+    total_expense += expense["amount"]
+print(f"Total Expenses: ${total_expense}")
 
 #find max expense
 print(f"Highest single expense: $", max(expense["amount"] for expense in expenses))
